@@ -1,8 +1,7 @@
 const express = require('express');
-const { model } = require('mongoose');
 const router = express.Router();
 
-const controller = require('../controllers/product.controller');
+const controller = require('../controllers/category.controller');
 
 router.get('/',controller.index);
 router.post('/',controller.create);
