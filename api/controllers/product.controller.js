@@ -10,8 +10,16 @@ module.exports.create = async (req, res) => {
     res.json(product)
 }
 
-// module.exports.delete = async (req, res) => {
+module.exports.putUpdate = async (req, res) => {
+    const {id} = req.params;
 
-//     const product = await Product.delete({id:req.params.id});
-//     res.json(product)
-// }
+    const product = await Product.findByIdAndUpdate({_id:id},req.body);
+    res.json(product)
+}
+
+module.exports.delete = async (req, res) => {
+    const {id} = req.params;
+
+    const product = await Product.findOneAndRemove({_id:id});
+    res.json(product)
+}
